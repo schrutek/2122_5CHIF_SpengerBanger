@@ -1,0 +1,15 @@
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\bin\Debug\net5.0\Spg.SpengerBanger.Business.deps.json
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\bin\Debug\net5.0\Spg.SpengerBanger.Business.runtimeconfig.json
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\bin\Debug\net5.0\Spg.SpengerBanger.Business.runtimeconfig.dev.json
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\bin\Debug\net5.0\Spg.SpengerBanger.Business.dll
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\bin\Debug\net5.0\ref\Spg.SpengerBanger.Business.dll
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\bin\Debug\net5.0\Spg.SpengerBanger.Business.pdb
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.AssemblyInfoInputs.cache
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.AssemblyInfo.cs
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.csproj.CoreCompileInputs.cache
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.dll
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\ref\Spg.SpengerBanger.Business.dll
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.pdb
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.genruntimeconfig.cache
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.Business\obj\Debug\net5.0\Spg.SpengerBanger.Business.csproj.AssemblyReference.cache

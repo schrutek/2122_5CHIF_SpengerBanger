@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Shop>
+
+<h1>
+    Shops
+</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>CatchPhrase</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Shop item in Model)
+        {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Location</td>
+            <td>@item.CatchPhrase</td>
+        </tr>
+        }
+    </tbody>
+</table>
