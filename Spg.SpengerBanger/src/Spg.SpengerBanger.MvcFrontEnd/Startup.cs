@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Spg.SpengerBanger.Business.Domain.Interfaces;
 using Spg.SpengerBanger.Business.Infrastructure;
 using Spg.SpengerBanger.Business.Services;
 using System;
@@ -35,7 +36,7 @@ namespace Spg.SpengerBanger.MvcFrontEnd
                 }
             });
             
-            services.AddTransient<ShopService>();
+            services.AddTransient<IShopService, ShopService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

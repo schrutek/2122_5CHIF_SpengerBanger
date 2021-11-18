@@ -1,4 +1,5 @@
-﻿using Spg.SpengerBanger.Business.Domain.Model;
+﻿using Spg.SpengerBanger.Business.Domain.Interfaces;
+using Spg.SpengerBanger.Business.Domain.Model;
 using Spg.SpengerBanger.Business.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Spg.SpengerBanger.Business.Services
 {
-    public class ShopService
+    public class ShopService : IShopService
     {
         private SpengerBangerContext _dbContext;
 

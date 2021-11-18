@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Spg.SpengerBanger.Business.Test
 {
-    public class UnitTest1
+    public class InfrastructureTest
     {
         [Fact]
         public void GenerateDbFromContextTest()
@@ -18,6 +18,7 @@ namespace Spg.SpengerBanger.Business.Test
             {
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
+                db.Seed();
                 Assert.True(true);
             }
         }

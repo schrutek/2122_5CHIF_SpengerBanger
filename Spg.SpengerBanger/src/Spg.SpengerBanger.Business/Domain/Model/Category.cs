@@ -11,8 +11,8 @@ namespace Spg.SpengerBanger.Business.Domain.Model
         public string Name { get; set; }
 
         public int ShopId { get; set; }
-        public Shop Shop { get; set; }
+        public Shop ShopNavigation { get; set; } = null!;
 
-        ICollection<Product> Products { get; set; }
+        public IList<Product> Products { get; set; } = new List<Product>();
     }
 }

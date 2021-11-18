@@ -1,0 +1,15 @@
+﻿@model Shop
+
+@DateTime.Now.ToString()
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name">Klasse:</label>
+        <input class="form-control" asp-for="Name">
+        <div><span class="text-danger small" asp-validation-for="Name"></span></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+</form>

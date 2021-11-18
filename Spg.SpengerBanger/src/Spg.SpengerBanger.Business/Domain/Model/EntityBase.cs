@@ -10,6 +10,8 @@ namespace Spg.SpengerBanger.Business.Domain.Model
     {
         public int Id { get; set; }
         public DateTime? LastChangeDate { get; set; }
+
+        public int? LastChangeUserId { get; set; }
         public User LastChangeUser { get; set; }
     }
 }

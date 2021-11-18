@@ -143,3 +143,5 @@ C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBa
 C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.MvcFrontEnd\bin\Debug\net5.0\Spg.SpengerBanger.Business.pdb
 C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.MvcFrontEnd\obj\Debug\net5.0\Spg.SpengerBanger.MvcFrontEnd.csproj.AssemblyReference.cache
 C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.MvcFrontEnd\obj\Debug\net5.0\Razor\Views\Shop\Index.cshtml.g.cs
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.MvcFrontEnd\obj\Debug\net5.0\staticwebassets\Spg.SpengerBanger.MvcFrontEnd.StaticWebAssets.xml
+C:\HTL\Unterricht\SJ2122\5CHIF\SpengerBanger\Spg.SpengerBanger\src\Spg.SpengerBanger.MvcFrontEnd\obj\Debug\net5.0\Razor\Views\Shop\Edit.cshtml.g.cs

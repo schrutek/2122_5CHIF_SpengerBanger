@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Spg.SpengerBanger.Business.Domain.Interfaces;
 using Spg.SpengerBanger.Business.Services;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ namespace Spg.SpengerBanger.MvcFrontEnd.Controllers
 {
     public class ShopController : Controller
     {
-        private ShopService _shopService;
+        private IShopService _shopService;
 
-        public ShopController(ShopService shopService)
+        public ShopController(IShopService shopService)
         {
             _shopService = shopService;
         }

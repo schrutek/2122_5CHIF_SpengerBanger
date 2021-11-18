@@ -14,6 +14,6 @@ namespace Spg.SpengerBanger.Business.Domain.Model
         public string CatchPhrase { get; set; }
         public string Bs { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public IList<Category> Categories { get; set; } = new List<Category>();
     }
 }

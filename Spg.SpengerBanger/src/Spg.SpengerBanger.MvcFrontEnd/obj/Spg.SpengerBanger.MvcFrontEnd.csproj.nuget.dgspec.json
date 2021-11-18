@@ -10,16 +10,15 @@
         "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
         "projectName": "Spg.SpengerBanger.Business",
         "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
-        "packagesPath": "C:\\Users\\schrutem\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
         "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\schrutem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -78,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -88,16 +87,15 @@
         "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj",
         "projectName": "Spg.SpengerBanger.MvcFrontEnd",
         "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj",
-        "packagesPath": "C:\\Users\\schrutem\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
         "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\schrutem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -145,12 +143,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.9, 5.0.9]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -159,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
