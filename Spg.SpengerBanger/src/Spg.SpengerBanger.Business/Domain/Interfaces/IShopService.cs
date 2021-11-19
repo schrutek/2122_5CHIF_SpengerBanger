@@ -12,7 +12,9 @@ namespace Spg.SpengerBanger.Business.Domain.Interfaces
     {
         IEnumerable<Shop> ListAllShops();
 
-        public Task CreateShop(CreateShopDto newShop);
+        Shop GetShopById(int id);
+
+        Task CreateShop(CreateShopDto newShop);
     }
 
 }

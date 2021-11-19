@@ -29,6 +29,13 @@ namespace Spg.SpengerBanger.Business.Services
             await _dbContext.SaveChangesAsync();
         }
 
+        public Shop GetShopById(int id)
+        {
+            var data = _dbContext.Shops.ToList();
+
+            return data.Where(s => s.Id == id).First();
+        }
+
         public IEnumerable<Shop> ListAllShops()
         {
             return _dbContext.Shops;

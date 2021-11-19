@@ -41,6 +41,14 @@ namespace Spg.SpengerBanger.Business.Test
         }
 
         [Fact]
+        public void TestGetShopById()
+        {
+            var erg = shopService.GetShopById(1);
+            Assert.True(erg is not null);
+
+        }
+
+        [Fact]
         public async void TestCreateShop()
         {
             var newShop = new CreateShopDto("Inc","Zeljko Group and Co","1050 Wien",
