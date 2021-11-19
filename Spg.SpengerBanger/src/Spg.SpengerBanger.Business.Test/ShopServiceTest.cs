@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Spg.SpengerBanger.Business.Domain.Dtos;
+using Spg.SpengerBanger.Business.Domain.Exceptions;
 using Spg.SpengerBanger.Business.Infrastructure;
 using Spg.SpengerBanger.Business.Services;
 using System;
@@ -36,6 +38,15 @@ namespace Spg.SpengerBanger.Business.Test
             var erg = shopService.ListAllShops();
             Assert.True( erg is not null && erg.Any());
 
+        }
+
+        [Fact]
+        public async void TestCreateShop()
+        {
+            var newShop = new CreateShopDto("Inc","Zeljko Group and Co","1050 Wien",
+                "SpengerBenger beste ever", "competently strategize state of the art networks");
+            await shopService.CreateShop(newShop);
+            Assert.True(true);
         }
 
     }
