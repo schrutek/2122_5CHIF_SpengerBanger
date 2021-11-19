@@ -5,6 +5,8 @@ using Xunit;
 
 namespace Spg.SpengerBanger.Business.Test
 {
+
+    [Collection("Sequential")]
     public class InfrastructureTest
     {
         [Fact]
@@ -14,13 +16,10 @@ namespace Spg.SpengerBanger.Business.Test
                 .UseSqlite("Data Source=SpengerBanger.db")
                 .Options;
 
-            using (var db = new SpengerBangerContext(options))
-            {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
-                db.Seed();
-                Assert.True(true);
-            }
+            var db = new SpengerBangerContext(options);
+
+            Assert.True(true);
+         
         }
     }
 }

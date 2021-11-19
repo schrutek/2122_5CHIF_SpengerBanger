@@ -12,6 +12,7 @@ using Xunit;
 
 namespace Spg.SpengerBanger.Business.Test
 {
+
     public class ShopServiceTest
     {
         private readonly ShopService shopService;
@@ -22,13 +23,13 @@ namespace Spg.SpengerBanger.Business.Test
                .UseSqlite("Data Source=SpengerBanger.db")
                .Options;
 
-            using (var db = new SpengerBangerContext(options))
-            {
+            var db = new SpengerBangerContext(options);
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
                 db.Seed();
+
                 Assert.True(true);
-            }
+
             shopService = new ShopService(new SpengerBangerContext(options));
         }
 
