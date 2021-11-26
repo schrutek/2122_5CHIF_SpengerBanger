@@ -1,6 +1,5 @@
 ﻿using Spg.SpengerBanger.Business.Domain.Dtos;
 using Spg.SpengerBanger.Business.Domain.Exceptions;
-using Spg.SpengerBanger.Business.Domain.Interfaces;
 using Spg.SpengerBanger.Business.Domain.Model;
 using Spg.SpengerBanger.Business.Infrastructure;
 using System;
@@ -9,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spg.SpengerBanger.Business.Services
+namespace Spg.SpengerBanger.Business.Services.ShopService
 {
     public class ShopService : IShopService
     {
@@ -22,9 +21,19 @@ namespace Spg.SpengerBanger.Business.Services
 
         public async Task CreateShop(CreateShopDto newShop)
         {
-            if (newShop is null) { 
+            // Bedungungen:
+            // * Der Shop soll immer und nur Sonntags geschlossen sein
+            // * 
+
+            if (newShop.Closed.DayOfWeek == DayOfWeek.Sunday)
+            {
+                throw new ServiceException("Sonntag ist Ruhetag!");
+            }
+
+            if (newShop is null)
+            {
                 throw new ServiceException("Create Shop fehlgeschlagen!");
-        }
+            }
             _dbContext.Add(newShop.ToShop());
             await _dbContext.SaveChangesAsync();
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Spg.SpengerBanger.Business.Domain.Dtos
 {
     public record CreateShopDto(string CompanySuffix, string Name, string Location,
-       string CatchPhrase, string Bs)
+       string CatchPhrase, string Bs, DateTime Closed)
     {
 
         public Shop ToShop()

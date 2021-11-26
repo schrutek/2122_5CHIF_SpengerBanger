@@ -1,27 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj": {}
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj": {
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
+        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
         "projectName": "Spg.SpengerBanger.Business",
-        "projectPath": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
-        "packagesPath": "C:\\Users\\Zeljko Predjeskovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\obj\\",
+        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Zeljko Predjeskovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,36 +77,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj": {
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj",
+        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj",
         "projectName": "Spg.SpengerBanger.MvcFrontEnd",
-        "projectPath": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj",
-        "packagesPath": "C:\\Users\\Zeljko Predjeskovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\obj\\",
+        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Zeljko Predjeskovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj": {
-                "projectPath": "C:\\Users\\Zeljko Predjeskovic\\Desktop\\PosCsharp\\2122_5CHIF_SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj"
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj"
               }
             }
           }
@@ -137,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

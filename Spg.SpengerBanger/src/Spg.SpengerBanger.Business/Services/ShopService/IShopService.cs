@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spg.SpengerBanger.Business.Domain.Interfaces
+namespace Spg.SpengerBanger.Business.Services.ShopService
 {
     public interface IShopService
     {

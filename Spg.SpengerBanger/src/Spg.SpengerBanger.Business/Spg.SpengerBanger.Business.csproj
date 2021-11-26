@@ -13,4 +13,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\Interfaces\" />
+    <Folder Include="Services\PaymentService\" />
+    <Folder Include="Services\ShoppingCartService\" />
+    <Folder Include="Services\ProductService\" />
+  </ItemGroup>
+
 </Project>

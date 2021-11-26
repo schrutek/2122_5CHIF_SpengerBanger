@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Spg.SpengerBanger.Business.Domain.Interfaces;
 using Spg.SpengerBanger.Business.Services;
+using Spg.SpengerBanger.Business.Services.ShopService;
 using System;
 using System.Collections.Generic;
 using System.Linq;

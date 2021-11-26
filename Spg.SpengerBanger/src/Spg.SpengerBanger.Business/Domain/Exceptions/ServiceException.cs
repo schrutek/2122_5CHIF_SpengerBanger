@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Spg.SpengerBanger.Business.Domain.Exceptions
 {
-    public class ServiceException:Exception
+    public class ServiceException : Exception
     {
         public ServiceException()
      : base()

@@ -3,6 +3,7 @@ using Spg.SpengerBanger.Business.Domain.Dtos;
 using Spg.SpengerBanger.Business.Domain.Exceptions;
 using Spg.SpengerBanger.Business.Infrastructure;
 using Spg.SpengerBanger.Business.Services;
+using Spg.SpengerBanger.Business.Services.ShopService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,45 +19,70 @@ namespace Spg.SpengerBanger.Business.Test
         private readonly ShopService shopService;
 
         public ShopServiceTest()
+        { }
+
+        private IShopService GenerateMockDb()
         {
             var options = new DbContextOptionsBuilder()
                .UseSqlite("Data Source=SpengerBanger.db")
                .Options;
 
             var db = new SpengerBangerContext(options);
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
-                db.Seed();
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+            db.Seed(); // Zufälliges zusammenstelen der DB-Daten (Bogus/Faker.js)
 
-                Assert.True(true);
+            Assert.True(true);
 
-            shopService = new ShopService(new SpengerBangerContext(options));
-        }
-
-        [Fact]
-        public void TestGetShopList()
-        {
-            var erg = shopService.ListAllShops();
-            Assert.True( erg is not null && erg.Any());
-
-        }
-
-        [Fact]
-        public void TestGetShopById()
-        {
-            var erg = shopService.GetShopById(1);
-            Assert.True(erg is not null);
-
+            return new ShopService(new SpengerBangerContext(options));
         }
 
         [Fact]
         public async void TestCreateShop()
         {
-            var newShop = new CreateShopDto("Inc","Zeljko Group and Co","1050 Wien",
-                "SpengerBenger beste ever", "competently strategize state of the art networks");
+            IShopService shopService = GenerateMockDb();
+            var newShop = new CreateShopDto("Inc", "Zeljko Group and Co", "1050 Wien",
+                "SpengerBenger beste ever", "competently strategize state of the art networks", new DateTime(2021, 11, 28));
             await shopService.CreateShop(newShop);
             Assert.True(true);
         }
 
+        [Fact]
+        public async void TestGetShopList()
+        {
+            IShopService shopService = GenerateMockDb();
+            var newShop = new CreateShopDto("Inc", "Zeljko Group and Co", "1050 Wien",
+                "SpengerBenger beste ever", "competently strategize state of the art networks", new DateTime(2021, 11, 28));
+            await shopService.CreateShop(newShop); // 1. Methode aus einem Service
+
+            // Arrange (obwohl der obere Test zuerst läuft, wird hier eine neue DB erstellt und "jungfreulich" geseedet)
+            //IShopService shopService = GenerateMockDb();
+
+            // Act
+            var erg = shopService.ListAllShops(); // 2. Methode aus einem Service
+
+            // Assert
+            Assert.True(erg is not null 
+                && erg.Count() == 6);
+        }
+
+        [Fact]
+        public void TestGetShopById()
+        {
+            IShopService shopService = GenerateMockDb();
+            var erg = shopService.GetShopById(1);
+            Assert.True(erg is not null);
+        }
+
+        
+        [Fact]
+        public async void Test_ClosedOnSunday_Success()
+        {
+            IShopService shopService = GenerateMockDb();
+            var newShop = new CreateShopDto("Inc", "Zeljko Group and Co", "1050 Wien",
+                "SpengerBenger beste ever", "competently strategize state of the art networks", new DateTime(2021, 11, 28));
+
+            await Assert.ThrowsAsync<ServiceException>(() => shopService.CreateShop(newShop));
+        }
     }
 }
