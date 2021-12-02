@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Bogus.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Spg.SpengerBanger.Business.Domain.Model;
 using System;
@@ -63,6 +64,7 @@ namespace Spg.SpengerBanger.Business.Infrastructure
                 u.LastName = f.Name.LastName();
                 u.EMail = f.Internet.Email();
                 u.Gender = gender;
+                u.Guid = Guid.NewGuid();
             })
             .Generate(1000)
             .ToList();
@@ -96,12 +98,12 @@ namespace Spg.SpengerBanger.Business.Infrastructure
 
 
 
-            List<Category> categories = new Faker<Category>().Rules((f, s) =>
+            List<Category> categories = new Faker<Category>().Rules((f, c) =>
             {
 
-                s.Name = f.Random.ArrayElement(f.Commerce.Categories(10));
+                c.Name = f.Random.ArrayElement(f.Commerce.Categories(10));
 
-                s.ShopNavigation = f.Random.ListItem(shops);
+                c.ShopNavigation = f.Random.ListItem(shops);
             })
             .Generate(50)
             .ToList();
@@ -110,17 +112,27 @@ namespace Spg.SpengerBanger.Business.Infrastructure
 
             
 
-            List<Product> products = new Faker<Product>().Rules((f, s) =>
+            List<Product> products = new Faker<Product>().Rules((f, p) =>
             {
-                s.CategoryNavigation= f.Random.ListItem(categories);
-                s.Ean13 = f.Commerce.Ean13();
-                s.Ean8 = f.Commerce.Ean8();
-                s.Name = f.Commerce.ProductName();
-                s.ProductAdjective = f.Commerce.ProductAdjective();
-                s.ProductMaterial = f.Commerce.ProductMaterial();
+                p.CategoryNavigation= f.Random.ListItem(categories);
+                p.Ean13 = f.Commerce.Ean13();
+                p.Ean8 = f.Commerce.Ean8();
+                p.Name = f.Commerce.ProductName();
+                p.ProductAdjective = f.Commerce.ProductAdjective();
+                p.ProductMaterial = f.Commerce.ProductMaterial();
+                p.Nett = f.Random.Decimal(10, 1000);
+                p.Tax = 20;
 
-                s.CategoryNavigation = f.Random.ListItem(categories);
-                s.CatPriceTypeNavigation = catPriceTypes[0];
+                p.CategoryNavigation = f.Random.ListItem(categories);
+                p.CatPriceTypeNavigation = catPriceTypes[0];
+
+                DateTime? lastChangeDate = f.Date.Between(new DateTime(2020, 01, 01), DateTime.Now).Date.OrNull(f, 0.3f);
+                p.LastChangeDate = lastChangeDate;
+                if (lastChangeDate != null)
+                {
+                    User owner = f.Random.ListItem(users);
+                    p.LastChangeUser = owner;
+                }
             })
             .Generate(500)
             .ToList();
@@ -142,16 +154,18 @@ namespace Spg.SpengerBanger.Business.Infrastructure
             SaveChanges();
 
 
-            List<ShoppingCartItem> shoppingCartItems = new Faker<ShoppingCartItem>().Rules((f, s) =>
+            List<ShoppingCartItem> shoppingCartItems = new Faker<ShoppingCartItem>().Rules((f, i) =>
             {
                 Product product = f.Random.ListItem(products);
 
-                s.Nett = product.Nett;
-                s.Tax = product.Tax;
-                s.ProductNavigation = product;
-                s.Name = product.Name;
+                i.Nett = product.Nett;
+                i.Tax = product.Tax;
+                i.ProductNavigation = product;
+                i.Name = product.Name;
+                i.LastChangeDate = f.Date.Between(new DateTime(2021, 01, 01, 00, 00, 00), DateTime.Now);
+                i.LastChangeUser = f.Random.ListItem(users);
 
-                s.ShoppingCartNavigation = f.Random.ListItem(shoppingCarts);
+                i.ShoppingCartNavigation = f.Random.ListItem(shoppingCarts);
             })
             .Generate(40)
             .ToList();

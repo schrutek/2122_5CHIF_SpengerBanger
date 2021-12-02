@@ -69,8 +69,13 @@ namespace Spg.SpengerBanger.Business.Test
         [Fact]
         public void TestGetShopById()
         {
+            // Arrange
             IShopService shopService = GenerateMockDb();
+
+            // Act
             var erg = shopService.GetShopById(1);
+
+            // Assert
             Assert.True(erg is not null);
         }
 

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model UserDto
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +8,16 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h3>Log-In:</h3>
+<p>
+    Bitte eine EMail-Adresse auswählen um sich mit diesem User anzumelden.
+</p>
+
+<form method="post">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <select asp-for="SelectedEMail" class ="form-control" asp-items="ViewBag.EMails"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Anmelden</button>
+</form>

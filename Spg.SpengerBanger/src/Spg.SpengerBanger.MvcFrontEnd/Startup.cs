@@ -1,13 +1,21 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Spg.SpengerBanger.Business.Domain.Interfaces;
+using Spg.SpengerBanger.Business.Domain.Model;
 using Spg.SpengerBanger.Business.Infrastructure;
 using Spg.SpengerBanger.Business.Services;
+using Spg.SpengerBanger.Business.Services.AuthService;
+using Spg.SpengerBanger.Business.Services.ShoppingCartService;
 using Spg.SpengerBanger.Business.Services.ShopService;
+using Spg.SpengerBanger.Business.Services.UserService;
+using Spg.SpengerBanger.MvcFrontEnd.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +43,25 @@ namespace Spg.SpengerBanger.MvcFrontEnd
                     optionsBuilder.UseSqlite(Configuration["AppSettings:Database"]);
                 }
             });
-            
+
+            /// *** Authentication, Authorization hinzufügen
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
+            services.AddAuthorization(o =>
+            {
+                o.AddPolicy("PolicyForCustomers", p => p.RequireRole(UserRoles.Customer.ToString(), UserRoles.Administrator.ToString()));
+                o.AddPolicy("PolicyForAdmins", p => p.RequireRole(UserRoles.Administrator.ToString()));
+            });
+            /// ***
+
+            services.AddTransient<IAuthService, HttpAuthService>();
+            services.AddTransient<IAuthProvider, DbAuthProvider>();
+
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IShopService, ShopService>();
+            services.AddTransient<IShoppingCartService, ShoppingCartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +82,15 @@ namespace Spg.SpengerBanger.MvcFrontEnd
 
             app.UseRouting();
 
+            /// *** Authentication, Authorization aktivieren
+            app.UseAuthentication();
             app.UseAuthorization();
+            var cookiePolicyOptions = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Lax,
+            };
+            app.UseCookiePolicy(cookiePolicyOptions);
+            /// ***
 
             app.UseEndpoints(endpoints =>
             {

@@ -14,6 +14,7 @@ namespace Spg.SpengerBanger.Business.Domain.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EMail { get; set; }
+        public Guid Guid { get; set; }
 
         public IList<ShoppingCart> ShoppingCarts { get; set; } = new List<ShoppingCart>();
     }

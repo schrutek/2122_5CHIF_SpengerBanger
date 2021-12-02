@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using Spg.SpengerBanger.Business.Domain.Interfaces;
+using Spg.SpengerBanger.Business.Domain.Model;
+using Spg.SpengerBanger.Business.Services.UserService;
 using Spg.SpengerBanger.MvcFrontEnd.Models;
-using System;
+using Spg.SpengerBanger.MvcFrontEnd.Services;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,16 +15,51 @@ namespace Spg.SpengerBanger.MvcFrontEnd.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUserService _userService;
+        private readonly IAuthService _httpAuthService;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            IUserService userService,
+            IAuthService httpAuthService, 
+            ILogger<HomeController> logger
+            )
         {
+            _userService = userService;
+            _httpAuthService = httpAuthService;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            List<string> emails = _userService
+                .ListTop50()
+                .Select(u => u.EMail)
+                .ToList();
+
+            UserDto dto = new UserDto() { EMails = emails, SelectedEMail = emails[0] };
+
+            ViewData["EMails"] = new SelectList(emails);
+            
+            return View(dto);
+        }
+
+        [HttpPost()]
+        public async Task<IActionResult> Index(UserDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _httpAuthService.Login(model.SelectedEMail);
+                return RedirectToAction(nameof(Welcome), "Home");
+            }
             return View();
+        }
+
+        public IActionResult Welcome()
+        {
+            string username = _httpAuthService.Username();
+
+            return View(model: username);
         }
 
         public IActionResult Privacy()

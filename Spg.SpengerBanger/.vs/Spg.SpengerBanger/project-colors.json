@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "926be39b-d2b5-4ec3-9997-fd85d8725b3f": {
+      "ProjectGuid": "926be39b-d2b5-4ec3-9997-fd85d8725b3f",
+      "DisplayName": "Spg.SpengerBanger.MvcFrontEnd",
+      "ColorIndex": 0
+    },
+    "3f6f2dbd-40f4-4ebd-b65c-3a719d64d5e9": {
+      "ProjectGuid": "3f6f2dbd-40f4-4ebd-b65c-3a719d64d5e9",
+      "DisplayName": "Spg.SpengerBanger.Business",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
