@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Spg.SpengerBanger.Business.Domain.Exceptions;
-using Spg.SpengerBanger.Business.Domain.Interfaces;
-using Spg.SpengerBanger.Business.Domain.Model;
-using Spg.SpengerBanger.Business.Services.AuthService;
+using Spg.SpengerBanger.Domain.Exceptions;
+using Spg.SpengerBanger.Domain.Interfaces;
+using Spg.SpengerBanger.Domain.Model;
+using Spg.SpengerBanger.Services.AuthService;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -63,6 +64,16 @@ namespace Spg.SpengerBanger.MvcFrontEnd.Services
 
         public string Username()
             => _httpContext.User.Identity.Name;
+
+        public UserInfo UserInfo()
+        {
+            string userInfoString = _httpContext.User.Claims.SingleOrDefault(c => c.Type == nameof(User))?.Value;
+            if (!string.IsNullOrEmpty(userInfoString))
+            {
+                return JsonSerializer.Deserialize<UserInfo>(userInfoString);
+            }
+            return null;
+        }
 
         public bool HasRole(string role)
             => _httpContext.User.IsInRole(role.ToString());

@@ -1,14 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spg.SpengerBanger.Business.Domain.Dtos;
-using Spg.SpengerBanger.Business.Domain.Exceptions;
-using Spg.SpengerBanger.Business.Infrastructure;
-using Spg.SpengerBanger.Business.Services;
-using Spg.SpengerBanger.Business.Services.ShopService;
+using Spg.SpengerBanger.Domain.Dtos;
+using Spg.SpengerBanger.Domain.Exceptions;
+using Spg.SpengerBanger.Infrastructure;
+using Spg.SpengerBanger.Services.ShopService;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Spg.SpengerBanger.Business.Test
@@ -16,8 +12,6 @@ namespace Spg.SpengerBanger.Business.Test
 
     public class ShopServiceTest
     {
-        private readonly ShopService shopService;
-
         public ShopServiceTest()
         { }
 
@@ -73,7 +67,7 @@ namespace Spg.SpengerBanger.Business.Test
             IShopService shopService = GenerateMockDb();
 
             // Act
-            var erg = shopService.GetShopById(1);
+            var erg = shopService.GetShopById(new Guid("8930863F-0B71-444D-9ACF-32B58AEC09EE"));
 
             // Assert
             Assert.True(erg is not null);

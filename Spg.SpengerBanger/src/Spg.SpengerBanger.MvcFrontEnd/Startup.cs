@@ -2,24 +2,20 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Spg.SpengerBanger.Business.Domain.Interfaces;
-using Spg.SpengerBanger.Business.Domain.Model;
-using Spg.SpengerBanger.Business.Infrastructure;
-using Spg.SpengerBanger.Business.Services;
-using Spg.SpengerBanger.Business.Services.AuthService;
-using Spg.SpengerBanger.Business.Services.ShoppingCartService;
-using Spg.SpengerBanger.Business.Services.ShopService;
-using Spg.SpengerBanger.Business.Services.UserService;
+using Spg.SpengerBanger.Domain.Interfaces;
+using Spg.SpengerBanger.Domain.Model;
+using Spg.SpengerBanger.Infrastructure;
+using Spg.SpengerBanger.Services.AuthService;
+using Spg.SpengerBanger.Services.CategoryService;
+using Spg.SpengerBanger.Services.ProductService;
+using Spg.SpengerBanger.Services.ShoppingCartService;
+using Spg.SpengerBanger.Services.ShopService;
+using Spg.SpengerBanger.Services.UserService;
 using Spg.SpengerBanger.MvcFrontEnd.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Spg.SpengerBanger.MvcFrontEnd
 {
@@ -62,6 +58,8 @@ namespace Spg.SpengerBanger.MvcFrontEnd
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IShopService, ShopService>();
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

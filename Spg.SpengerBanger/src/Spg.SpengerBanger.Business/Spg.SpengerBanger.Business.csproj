@@ -13,9 +13,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\PaymentService\" />
-    <Folder Include="Services\ProductService\" />
-  </ItemGroup>
-
 </Project>

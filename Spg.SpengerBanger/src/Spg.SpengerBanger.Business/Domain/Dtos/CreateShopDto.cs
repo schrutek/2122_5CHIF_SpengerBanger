@@ -14,13 +14,7 @@ namespace Spg.SpengerBanger.Business.Domain.Dtos
 
         public Shop ToShop()
         {
-            return new Shop() {
-                CompanySuffix = CompanySuffix,
-                Name = Name,
-                Location = Location,
-                CatchPhrase = CatchPhrase,
-                Bs = Bs
-            };
+            return new Shop(CompanySuffix, Name, Location, CatchPhrase, Bs, new Address("", "", ""));
         }
     }
 }

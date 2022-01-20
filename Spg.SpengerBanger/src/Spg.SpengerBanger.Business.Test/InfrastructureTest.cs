@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Spg.SpengerBanger.Business.Infrastructure;
+using Spg.SpengerBanger.Infrastructure;
 using System;
 using Xunit;
 
@@ -12,14 +12,12 @@ namespace Spg.SpengerBanger.Business.Test
         [Fact]
         public void GenerateDbFromContextTest()
         {
-            var options = new DbContextOptionsBuilder()
-                .UseSqlite("Data Source=SpengerBanger.db")
-                .Options;
-
-            var db = new SpengerBangerContext(options);
+            SpengerBangerContext db = new TestContextFactory().CreateDbContext();
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+            db.Seed();
 
             Assert.True(true);
-         
         }
     }
 }

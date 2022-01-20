@@ -10,7 +10,37 @@
       "ProjectGuid": "3f6f2dbd-40f4-4ebd-b65c-3a719d64d5e9",
       "DisplayName": "Spg.SpengerBanger.Business",
       "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "132677e4-8ad3-4ca6-9c24-9db2dd82459b": {
+      "ProjectGuid": "132677e4-8ad3-4ca6-9c24-9db2dd82459b",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 2
+    },
+    "a26d76e4-7942-4f62-a79f-454802af8609": {
+      "ProjectGuid": "a26d76e4-7942-4f62-a79f-454802af8609",
+      "DisplayName": "Spg.SpengerBanger.Business.Test",
+      "ColorIndex": 3
+    },
+    "acd44802-e4ab-45c6-a41b-58577c9c7ada": {
+      "ProjectGuid": "acd44802-e4ab-45c6-a41b-58577c9c7ada",
+      "DisplayName": "Spg.SpengerBanger.Infrastructure",
+      "ColorIndex": 4
+    },
+    "4f589813-0246-4876-84f0-833b30034980": {
+      "ProjectGuid": "4f589813-0246-4876-84f0-833b30034980",
+      "DisplayName": "Spg.SpengerBanger.Domain",
+      "ColorIndex": 5
+    },
+    "8be58443-9204-41c7-afff-64d4e227cb1f": {
+      "ProjectGuid": "8be58443-9204-41c7-afff-64d4e227cb1f",
+      "DisplayName": "Spg.SpengerBanger.Services",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 7
 }

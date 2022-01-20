@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Spg.SpengerBanger.Domain\Spg.SpengerBanger.Domain.csproj" />
+    <ProjectReference Include="..\Spg.SpengerBanger.Infrastructure\Spg.SpengerBanger.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

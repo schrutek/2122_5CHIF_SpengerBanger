@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using Spg.SpengerBanger.Business.Domain.Interfaces;
-using Spg.SpengerBanger.Business.Domain.Model;
-using Spg.SpengerBanger.Business.Services.UserService;
+using Spg.SpengerBanger.Domain.Interfaces;
 using Spg.SpengerBanger.MvcFrontEnd.Models;
-using Spg.SpengerBanger.MvcFrontEnd.Services;
+using Spg.SpengerBanger.Services.UserService;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -21,7 +19,7 @@ namespace Spg.SpengerBanger.MvcFrontEnd.Controllers
 
         public HomeController(
             IUserService userService,
-            IAuthService httpAuthService, 
+            IAuthService httpAuthService,
             ILogger<HomeController> logger
             )
         {
@@ -40,7 +38,7 @@ namespace Spg.SpengerBanger.MvcFrontEnd.Controllers
             UserDto dto = new UserDto() { EMails = emails, SelectedEMail = emails[0] };
 
             ViewData["EMails"] = new SelectList(emails);
-            
+
             return View(dto);
         }
 

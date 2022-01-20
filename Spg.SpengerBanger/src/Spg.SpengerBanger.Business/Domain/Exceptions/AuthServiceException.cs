@@ -9,7 +9,7 @@ namespace Spg.SpengerBanger.Business.Domain.Exceptions
     public class AuthServiceException : Exception
     {
         public AuthServiceException()
-     : base()
+            : base()
         { }
 
         public AuthServiceException(string message)

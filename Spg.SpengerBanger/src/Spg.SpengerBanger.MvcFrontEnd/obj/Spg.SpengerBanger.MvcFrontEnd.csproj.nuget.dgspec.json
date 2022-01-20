@@ -4,14 +4,14 @@
     "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.MvcFrontEnd\\Spg.SpengerBanger.MvcFrontEnd.csproj": {}
   },
   "projects": {
-    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj": {
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
-        "projectName": "Spg.SpengerBanger.Business",
-        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj",
+        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj",
+        "projectName": "Spg.SpengerBanger.Domain",
+        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\obj\\",
+        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -24,15 +24,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -43,22 +43,167 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Infrastructure\\Spg.SpengerBanger.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Infrastructure\\Spg.SpengerBanger.Infrastructure.csproj",
+        "projectName": "Spg.SpengerBanger.Infrastructure",
+        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Infrastructure\\Spg.SpengerBanger.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj"
+              },
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.ModelConfiguration\\Spg.SpengerBanger.ModelConfiguration.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.ModelConfiguration\\Spg.SpengerBanger.ModelConfiguration.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Bogus": {
               "target": "Package",
-              "version": "[33.1.1, )"
+              "version": "[34.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.ModelConfiguration\\Spg.SpengerBanger.ModelConfiguration.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.ModelConfiguration\\Spg.SpengerBanger.ModelConfiguration.csproj",
+        "projectName": "Spg.SpengerBanger.ModelConfiguration",
+        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.ModelConfiguration\\Spg.SpengerBanger.ModelConfiguration.csproj",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.ModelConfiguration\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -100,18 +245,21 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj": {
-                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Business\\Spg.SpengerBanger.Business.csproj"
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj"
+              },
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Services\\Spg.SpengerBanger.Services.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Services\\Spg.SpengerBanger.Services.csproj"
               }
             }
           }
@@ -123,8 +271,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -145,6 +293,73 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Services\\Spg.SpengerBanger.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Services\\Spg.SpengerBanger.Services.csproj",
+        "projectName": "Spg.SpengerBanger.Services",
+        "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Services\\Spg.SpengerBanger.Services.csproj",
+        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
+        "outputPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Domain\\Spg.SpengerBanger.Domain.csproj"
+              },
+              "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Infrastructure\\Spg.SpengerBanger.Infrastructure.csproj": {
+                "projectPath": "C:\\HTL\\Unterricht\\SJ2122\\5CHIF\\SpengerBanger\\Spg.SpengerBanger\\src\\Spg.SpengerBanger.Infrastructure\\Spg.SpengerBanger.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
