@@ -13,15 +13,16 @@ namespace Spg.SpengerBanger.Infrastructure
         where TEntity : EntityBase
     {
         public SpengerBangerContext _db { get; }
+
         public RepositoryBase(SpengerBangerContext db)
         {
             _db = db;
         }
 
         public IQueryable<TEntity> GetQueryable(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> sortOrder = null,
-            string includeNavigationProperty = null)
+            Expression<Func<TEntity, bool>>? filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? sortOrder = null,
+            string? includeNavigationProperty = null)
         {
             IQueryable<TEntity> result = _db.Set<TEntity>();
             if (filter != null)
@@ -40,9 +41,9 @@ namespace Spg.SpengerBanger.Infrastructure
             return result;
         }
 
-        public TEntity GetSingle(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        public TEntity? GetSingle(
+            Expression<Func<TEntity, bool>>? filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
             string includeNavigationProperty = "")
         {
             return GetQueryable(filter: filter, sortOrder: orderBy, includeNavigationProperty: includeNavigationProperty)
@@ -50,15 +51,15 @@ namespace Spg.SpengerBanger.Infrastructure
         }
 
         public IQueryable<TEntity> Get(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            Expression<Func<TEntity, bool>>? filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
             string includeNavigationProperty = "")
         {
             return GetQueryable(filter: filter, sortOrder: orderBy, includeNavigationProperty: includeNavigationProperty);
         }
 
         public IQueryable<TEntity> GetAll(
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
             string includeNavigationProperty = "")
         {
             return GetQueryable(sortOrder: orderBy, includeNavigationProperty: includeNavigationProperty);
