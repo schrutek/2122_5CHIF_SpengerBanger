@@ -5,15 +5,20 @@ using Spg.SpengerBanger.Domain.Interfaces;
 using Spg.SpengerBanger.Domain.Model;
 using Spg.SpengerBanger.Infrastructure;
 using Spg.SpengerBanger.Services.ProductService;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Spg.SpengerBanger.Services.ShoppingCartService
 {
-    public class ShoppingCartService : IShoppingCartService
+    public class ShoppingCartServiceWithRepo : IShoppingCartService
     {
         /// <summary>
         /// Hält die Instanz des DB-Context
         /// </summary>
-        private readonly SpengerBangerContext _dbContext;
+        private readonly IRepositoryBase<ShoppingCart> _shoppingCartRepo;
 
         private readonly IAuthService _authService;
         private readonly IProductService _productService;
@@ -22,22 +27,22 @@ namespace Spg.SpengerBanger.Services.ShoppingCartService
         /// Constructor-Injection
         /// </summary>
         /// <param name="dbContext"></param>
-        public ShoppingCartService(SpengerBangerContext dbContext,
+        public ShoppingCartServiceWithRepo(IRepositoryBase<ShoppingCart> shoppingCartRepo,
             IAuthService authService,
             IProductService productService)
         {
-            _dbContext = dbContext;
+            _shoppingCartRepo = shoppingCartRepo;
             _authService = authService;
             _productService = productService;
         }
 
         public ShoppingCartDto GetActive()
         {
-            ShoppingCart activeShoppingCart = _dbContext
-                .ShoppingCarts
-                .Include(s => s.ShoppingCartItems)
-                .SingleOrDefault(s => s.Guid == _authService.UserInfo().ActiveShoppingCartId)
+            Guid activecartGuid = _authService.UserInfo().ActiveShoppingCartId;
+            ShoppingCart activeShoppingCart =_shoppingCartRepo
+                .GetSingle(filter: s => s.Guid == activecartGuid, includeNavigationProperty: "ShoppingCartItems")
                     ?? throw new ServiceValidationException("Kein aktiver Warenkorb vorhanden!");
+
             return new ShoppingCartDto()
             {
                 Guid = activeShoppingCart.Guid,
@@ -63,11 +68,9 @@ namespace Spg.SpengerBanger.Services.ShoppingCartService
         public bool AddItem(ShoppingCartItemDto shoppingCartItemDto)
         {
             // Initialization:
-            ShoppingCart activeShoppingCart = _dbContext
-                .ShoppingCarts
-                .Include(s => s.ShoppingCartItems)
-                .Include(s => s.UserNavigation)
-                .SingleOrDefault(s => s.Guid == _authService.UserInfo().ActiveShoppingCartId)
+            Guid activecartGuid = _authService.UserInfo().ActiveShoppingCartId;
+            ShoppingCart activeShoppingCart = _shoppingCartRepo
+                .GetSingle(filter: s => s.Guid == activecartGuid, includeNavigationProperty: "ShoppingCartItems, UserNavigation")
                     ?? throw new ServiceValidationException("Kein aktiver Warenkorb vorhanden!");
             Product selectedProduct = _productService.GetProduct(shoppingCartItemDto.ProductId);
 
@@ -79,22 +82,23 @@ namespace Spg.SpengerBanger.Services.ShoppingCartService
             // ...
 
             // Act:
-            ShoppingCartItem newShoppingCartItem = new ShoppingCartItem(selectedProduct.Name, selectedProduct.Tax, selectedProduct.Nett, selectedProduct, Guid.NewGuid());
+            Guid newGuid = Guid.NewGuid();
+            ShoppingCartItem newShoppingCartItem = new ShoppingCartItem(selectedProduct.Name, selectedProduct.Tax, selectedProduct.Nett, selectedProduct, newGuid);
             newShoppingCartItem.Pieces = shoppingCartItemDto.Pieces;
             activeShoppingCart.AddItem(newShoppingCartItem);
 
             // Save
             try
             {
-                _dbContext.SaveChanges();
+                _shoppingCartRepo.SaveChanges();
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                throw new ShoppingCartServiceException("Methode 'void AddItem(Guid, ShoppingCartItem)' ist fehlgeschlagen!", ex);
+                throw new ShoppingCartServiceException("Methode 'void AddItem(ShoppingCartItem)' ist fehlgeschlagen!", ex);
             }
             catch (DbUpdateException ex)
             {
-                throw new ShoppingCartServiceException("Methode 'void AddItem(Guid, ShoppingCartItem)' ist fehlgeschlagen!", ex);
+                throw new ShoppingCartServiceException("Methode 'void AddItem(ShoppingCartItem)' ist fehlgeschlagen!", ex);
             }
             return true;
         }
@@ -113,11 +117,9 @@ namespace Spg.SpengerBanger.Services.ShoppingCartService
         public void RemoveItem(int productId, int pieces)
         {
             // Initialization:
-            ShoppingCart activeShoppingCart = _dbContext
-                .ShoppingCarts
-                .Include(s => s.ShoppingCartItems)
-                .Include(s => s.UserNavigation)
-                .SingleOrDefault(s => s.Guid == _authService.UserInfo().ActiveShoppingCartId)
+            Guid activecartGuid = _authService.UserInfo().ActiveShoppingCartId;
+            ShoppingCart activeShoppingCart = _shoppingCartRepo
+                .GetSingle(filter: s => s.Guid == activecartGuid, includeNavigationProperty: "ShoppingCartItems, UserNavigation")
                     ?? throw new ServiceValidationException("Kein aktiver Warenkorb vorhanden!");
             Product selectedProduct = _productService.GetProduct(productId);
 
@@ -130,7 +132,7 @@ namespace Spg.SpengerBanger.Services.ShoppingCartService
             // Save
             try
             {
-                _dbContext.SaveChanges();
+                _shoppingCartRepo.SaveChanges();
             }
             catch (DbUpdateConcurrencyException ex)
             {

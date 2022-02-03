@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Moq;
 using Spg.SpengerBanger.Business.Test.Mock;
 using Spg.SpengerBanger.Domain.Dtos;
 using Spg.SpengerBanger.Domain.Exceptions;
+using Spg.SpengerBanger.Domain.Interfaces;
 using Spg.SpengerBanger.Domain.Model;
 using Spg.SpengerBanger.Infrastructure;
 using Spg.SpengerBanger.Services.ProductService;
@@ -12,19 +14,22 @@ using Xunit;
 
 namespace Spg.SpengerBanger.Business.Test
 {
-    public class SchoppingCartServiceTest
+    public class ShoppingCartServiceTest
     {
-        public SchoppingCartServiceTest()
+        public ShoppingCartServiceTest()
         { }
 
         #region -- Init ---------------------------------------------------------------------------
 
-        private SpengerBangerTestContext GenerateMockDb()
+        private SpengerBangerContext GenerateMockDb()
         {
-            SpengerBangerTestContext db = new TestContextFactory().CreateDbContext();
+            DbContextOptions builder = new DbContextOptionsBuilder()
+            .UseSqlite("Data Source=SpengerBangerTest.db").Options;
+
+            SpengerBangerContext db = new SpengerBangerContext(builder);
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            db.Seed();
+            db.SeedTest();
             return db;
         }
 
@@ -40,7 +45,7 @@ namespace Spg.SpengerBanger.Business.Test
                 int productId)
         {
             SpengerBangerContext context = GenerateMockDb();
-            IShoppingCartService shoppingCartService = new ShoppingCartService(new RepositoryBase<ShoppingCart>(context), 
+            IShoppingCartService shoppingCartService = new ShoppingCartService(context, 
                 new AuthServiceTestMock(username), 
                 new ProductService(context));
 
@@ -59,6 +64,36 @@ namespace Spg.SpengerBanger.Business.Test
         #region -- AddItem ------------------------------------------------------------------------
 
         [Fact]
+        public void AddShoppingCartItemSuccess()
+        {
+            // Arrange
+            SpengerBangerContext db = GenerateMockDb();
+
+            ShoppingCartItemDto shoppingCartItemDto = new ShoppingCartItemDto()
+            {
+                Pieces = 1,
+                PriceNett = 147.9939390150805M,
+                ProductId = 1,
+                ProductName = "Intelligent Wooden Chips",
+                Tax = 20
+            };
+
+            IProductService productService = new ProductService(db);
+            IAuthService authService = new AuthServiceTestMock("Levin_Hold@hotmail.com");
+            IShoppingCartService shoppingCartService = new ShoppingCartService(db, authService, productService);
+
+            Func<int> getShoppingCartItems = () =>
+                db.ShoppingCarts.SingleOrDefault(s => s.Guid == new Guid("582C3776-5726-4349-A6FE-D640671878AB")).ShoppingCartItems.Count();
+            int items = getShoppingCartItems();
+
+            // Act
+            shoppingCartService.AddItem(shoppingCartItemDto);
+
+            // Assert
+            Assert.Equal(items + 1, getShoppingCartItems());
+        }
+
+        [Fact]
         public void Test_AddItem_EmptyCart_Success()
         {
             // Arrange
@@ -70,7 +105,7 @@ namespace Spg.SpengerBanger.Business.Test
             ShoppingCartItemDto newShoppingCartItem = new() { ProductId = productId };
 
             // Act
-            Guid guid = shoppingCartService.AddItem(newShoppingCartItem);
+            bool guid = shoppingCartService.AddItem(newShoppingCartItem);
 
             // Assert
             Assert.Single(context.ShoppingCarts.SingleOrDefault(s => s.Guid == shoppingCartId).ShoppingCartItems);
@@ -85,15 +120,16 @@ namespace Spg.SpengerBanger.Business.Test
             int productId = 1;
 
             var (context, shoppingCartService, shoppingCart, product, user) = Prepare(username, shoppingCartId, productId);
-            shoppingCart.AddItem(new(product.Name, product.Tax, product.Nett, product, Guid.NewGuid()));
+            Guid newGuid = Guid.NewGuid();
+            shoppingCart.AddItem(new(product.Name, product.Tax, product.Nett, product, newGuid));
             context.SaveChanges();
             ShoppingCartItemDto newShoppingCartItem = new() { ProductId = productId };
 
             // Act
-            Guid guid = shoppingCartService.AddItem(newShoppingCartItem);
+            bool guid = shoppingCartService.AddItem(newShoppingCartItem);
 
             // Assert
-            Assert.Equal(2, context.ShoppingCarts.SingleOrDefault(s => s.Guid == guid).ShoppingCartItems.First().Pieces);
+            Assert.Equal(2, context.ShoppingCarts.SingleOrDefault(s => s.Id == 1).ShoppingCartItems.First().Pieces);
         }
 
         [Fact]
@@ -110,7 +146,7 @@ namespace Spg.SpengerBanger.Business.Test
             ShoppingCartItemDto newShoppingCartItem = new() { ProductId = productId };
 
             // Act
-            Guid guid = shoppingCartService.AddItem(newShoppingCartItem);
+            bool guid = shoppingCartService.AddItem(newShoppingCartItem);
 
             // Assert
             Assert.Equal(8, context.Products.SingleOrDefault(s => s.Id == productId).Stock);

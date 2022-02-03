@@ -10,11 +10,11 @@ namespace Spg.SpengerBanger.Services.ShoppingCartService
 {
     public interface IShoppingCartService
     {
-        public IQueryable<ShoppingCartItemDetailsDto> GetActive();
+        public ShoppingCartDto GetActive();
 
-        public Guid AddItem(ShoppingCartItemDto newItem);
+        public bool AddItem(ShoppingCartItemDto shoppingCartItemDto);
 
-        public void EditItem(Guid guid, ShoppingCartItemDto item);
+        public void EditItem(Guid guid, ShoppingCartDto item);
 
         public void RemoveItem(int productId, int pieces);
     }

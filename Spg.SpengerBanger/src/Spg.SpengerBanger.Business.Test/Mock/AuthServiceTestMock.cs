@@ -11,7 +11,7 @@ namespace Spg.SpengerBanger.Business.Test.Mock
     public class AuthServiceTestMock : IAuthService
     {
         private readonly string _username;
-
+         
         public AuthServiceTestMock(string username)
         {
             _username = username;

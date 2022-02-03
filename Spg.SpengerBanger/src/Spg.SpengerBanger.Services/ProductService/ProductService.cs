@@ -1,4 +1,5 @@
-﻿using Spg.SpengerBanger.Domain.Model;
+﻿using Spg.SpengerBanger.Domain.Exceptions;
+using Spg.SpengerBanger.Domain.Model;
 using Spg.SpengerBanger.Infrastructure;
 using System;
 using System.Linq;
@@ -24,7 +25,8 @@ namespace Spg.SpengerBanger.Services.ProductService
         {
             return _dbContext
                 .Products
-                .SingleOrDefault(p => p.Id == id);
+                .SingleOrDefault(p => p.Id == id) 
+                    ?? throw new ServiceValidationException("Produkt wurde nicht gefunden!");
         }
 
         public void IncreaseStock(int amount)
